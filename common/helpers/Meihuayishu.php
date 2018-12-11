@@ -38,9 +38,9 @@ class Meihuayishu
 		$down = ZhanbuBase::BAGUA[($yearNum+$monthNum+$dayNum+$hoursNum)%8];
 		// 动爻
 		$yao = ($yearNum+$monthNum+$dayNum+$hoursNum)%6;
-
+		
 		if ($yao == 0) {
-			$yao == 6;
+			$yao = 6;
 		}
 		
 		$upGua = ZhanbuBase::GUA[$up];
@@ -55,12 +55,16 @@ class Meihuayishu
 
 		// 互卦
 		$huGuaCode = implode('|', [$yaos[4], $yaos[3], $yaos[2], $yaos[3], $yaos[2], $yaos[1]]);
-
 		$yaos[$yao-1] = $yaos[$yao-1] == 0 ? '1' : '0';
 		$bianGua      = implode('|', array_reverse($yaos));
 		$bianGuaName  = ZhanbuBase::GUA64[$bianGua];
 
-		return ['zhu' => $zhuGuaName, 'hu' => ZhanbuBase::GUA64[$huGuaCode], 'bian' => $bianGuaName, 'yao' => $yao];
+		return [
+			'zhu' => $zhuGuaName, 
+			'hu' => ZhanbuBase::GUA64[$huGuaCode], 
+			'bian' => $bianGuaName, 
+			'yao' => $yao
+		];
 	}
 
 	/**

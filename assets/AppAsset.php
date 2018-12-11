@@ -21,11 +21,11 @@ class AppAsset extends AssetBundle
     public $baseUrl = '@web';
     public $css = [
         'css/site.css',
+        'css/weui.min.css',
     ];
     public $js = [
+        'https://res.wx.qq.com/open/libs/weuijs/1.0.0/weui.min.js'
     ];
     public $depends = [
-        'yii\web\YiiAsset',
-        'yii\bootstrap\BootstrapAsset',
     ];
 }
